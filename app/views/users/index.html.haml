@@ -18,10 +18,10 @@
               %h1.panel-title= link_to "#{user.nickname}",  user_path(user)
             .panel-body
             .thumbnail
-              -# - if user.avatar.blank?
-              -#   noimage
-              -# - else
-              -#   = image_tag(user.avatar)
+              - if user.profile_image.blank?
+                noimage
+              - else
+                = image_tag(user.profile_image)
             .panel-footer
     %br
     .panel.panel-default
@@ -35,10 +35,10 @@
               %h1.panel-title= link_to "#{matched_user.nickname}",  user_path(matched_user)
             .panel-body
             .thumbnail
-              -# - if matched_user.avatar.blank?
-              -#   noimage
-              -# - else
-              -#   = image_tag(matched_user.avatar)
+              - if user.profile_image.blank?
+                noimage
+              - else
+                = image_tag(user.profile_image)
             .panel-footer
     %br
     .panel.panel-default
@@ -53,8 +53,8 @@
                 %h1.panel-title= link_to "#{user.nickname}",  user_path(user)
               .panel-body
               .thumbnail
-                -# - if user.avatar.blank?
-                -#   noimage
-                -# - else
-                -#   = image_tag(user.avatar)
+                - if user.profile_image.blank?
+                  noimage
+                - else
+                  = image_tag(user.profile_image)
               .panel-footer

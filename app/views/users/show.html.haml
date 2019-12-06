@@ -1,8 +1,8 @@
--# .text-center
--#   - if @user.avatar.blank?
--#     noimage
--#   - else
--#     = image_tag @user.avatar, class: "avatar"
+.text-center
+  - if @user.profile_image.blank?
+    noimage
+  - else
+    = image_tag @user.profile_image, class: "avatar"
 .text-center#user-description
   = @user.nickname
   - if user_signed_in?
@@ -11,6 +11,6 @@
         #liked.btn.btn-default いいね済
       - else
         = render 'follow', {relationship: @relationship}
-    -# %br= @user.profile
+    %br= @user.profile_text
 
 = link_to 'Back', root_path
