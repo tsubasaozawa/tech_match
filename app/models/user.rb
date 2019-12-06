@@ -16,4 +16,10 @@ class User < ApplicationRecord
   def matchers
     following & followers
   end
+
+  validates :nickname,               presence: true, length: {maximum: 20}
+  validates :lastname_kanji,         presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
+  validates :firstname_kanji,        presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
+  validates :lastname_kana,          presence: true, format: {with: /\A[ぁ-んァ-ヶー－]+\z/}
+  validates :firstname_kana,         presence: true, format: {with: /\A[ぁ-んァ-ヶー－]+\z/}
 end
