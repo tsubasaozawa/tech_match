@@ -14,17 +14,17 @@
 
     <div class="field", style="margin-bottom: 20px;">
       <%= f.label "名前（漢字）", class: "label" %>
-      <div class="field-body", style= "display: flex;">
-        <%= f.text_field :lastname_kanji, autofocus: true, autocomplete: "lastname_kanji", placeholder: "例）田中", class: "input", "style" =>"margin-right: 10px;" %>
-        <%= f.text_field :firstname_kanji, autofocus: true, autocomplete: "firstname_kanji", placeholder: "例）太郎", class: "input" %>
+      <div class="level">
+        <%= f.text_field :lastname_kanji, autofocus: true, autocomplete: "lastname_kanji", placeholder: "例）田中", class: "input level-left", "style" =>"width: 195px; margin-right: 10px;" %>
+        <%= f.text_field :firstname_kanji, autofocus: true, autocomplete: "firstname_kanji", placeholder: "例）太郎", class: "input level-left", "style" =>"width: 195px" %>
       </div>
     </div>
 
     <div class="field", style="margin-bottom: 20px;">
       <%= f.label "名前（カナ）", class: "label" %>
-      <div class="field-body", style= "display: flex;">
-        <%= f.text_field :lastname_kana, autofocus: true, autocomplete: "lastname_kana", class: "input", placeholder: "例）タナカ", "style" =>"margin-right: 10px;" %>
-        <%= f.text_field :firstname_kana, autofocus: true, autocomplete: "firstname_kana", placeholder: "例）タロウ", class: "input" %>
+      <div class="level">
+        <%= f.text_field :lastname_kana, autofocus: true, autocomplete: "lastname_kana", placeholder: "例）タナカ", class: "input level-left", "style" =>"width: 195px; margin-right: 10px;" %>
+        <%= f.text_field :firstname_kana, autofocus: true, autocomplete: "firstname_kana", placeholder: "例）タロウ", class: "input level-left", "style" =>"width: 195px" %>
       </div>
     </div>
 
