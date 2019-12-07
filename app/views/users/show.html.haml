@@ -1,16 +1,27 @@
 .text-center
-  - if @user.profile_image.blank?
-    noimage
+  - if @user.id == current_user.id
+    = form_with model: @user, local: true do |f|
+      = f.file_field :profile_image
+      = f.submit
+    - if @user.profile_image.blank?
+      = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image"
+    - else
+      = image_tag @user.profile_image.url, class: "profile-image"
+    = link_to withdrawal_user_path do
+      退会する
   - else
-    = image_tag @user.profile_image, class: "avatar"
-.text-center#user-description
-  = @user.nickname
-  - if user_signed_in?
-    #follow_form
-      - if current_user.following?(@user)
-        #liked.btn.btn-default いいね済
-      - else
-        = render 'follow', {relationship: @relationship}
-    %br= @user.profile_text
+    - if @user.profile_image.blank?
+      = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image"
+    - else
+      = image_tag @user.profile_image.url, class: "profile-image"
+    .text-center#user-description
+      = @user.nickname
+      - if user_signed_in?
+        #follow_form
+          - if current_user.following?(@user)
+            #liked.btn.btn-default フォロー済
+          - else
+            = render 'follow', {relationship: @relationship}
+        %br= @user.profile_text
 
 = link_to 'Back', root_path
