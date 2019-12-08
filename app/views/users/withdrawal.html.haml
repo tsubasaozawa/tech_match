@@ -1,5 +1,36 @@
-本当に退会しますか？
-= link_to "/users/#{@user.id}", method: :delete, data: { confirm: "You sure?" } do
-  yes
-= link_to user_path do
-  no
+= render 'user-header'
+.section
+  .hero-body
+    .container{ style: "padding: 0 80px;"}
+      .box.columns
+        .submenu.column.is-3{ style: "border-right: solid 1px #eee;"}
+          = render 'user-edit-sidebar'
+        .column
+          .nav
+            .nav-left
+            .nav-center
+              .nav-item{ style: "margin-bottom: 20px;"}
+                .title.is-2{ style: "margin-left: 40px;"} Withdrawal
+            .nav-right.is-2
+
+          .nav
+            .nav-left
+            .nav-center
+              .nav-item
+                .label 本当に退会しますか？
+            .nav-right
+          .nav
+            .nav-left
+            .nav-center
+              .nav-item
+                = link_to "/users/#{@user.id}", method: :delete, data: { confirm: "You sure?" } , class: "button is-warning" do
+                  YES
+              .nav-item
+                or
+              .nav-item
+                = link_to user_path, class: "button is-success" do
+                  NO
+            .nav-right
+
+
+= render 'shared/footer'

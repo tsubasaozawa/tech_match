@@ -30,12 +30,7 @@
                   #liked.button.btn-default フォロー済
                 - else
                   = render 'follow', {relationship: @relationship}
-            -# .profile-top-box__user-nickname
-            -#   - unless @user.admin?
-            -#     = link_to withdrawal_user_path do
-            -#       退会する
             
-
       .tabs.is-centered
         %ul
           %li.is-active

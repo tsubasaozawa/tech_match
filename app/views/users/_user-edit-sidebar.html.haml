@@ -8,6 +8,14 @@
     %li
       = link_to({controller: "users", action: "edit", name: "edit_password"}) do
         password
+  %p.menu-label
+    Others
+  %ul.menu-list
+    - unless @user.admin?
+      %li
+        = link_to withdrawal_user_path do
+          withdrawal
+
   -# %p.menu-label
   -#   Administration
   -# %ul.menu-list
