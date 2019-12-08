@@ -1,0 +1,57 @@
+= render 'shared/header'
+.section
+  .container
+    .tabs.is-centered.is-boxed.is-medium
+      %ul
+        %li
+          = link_to root_path do
+            %span.icon.is-small
+              %i.fas.fa-image{"aria-hidden" => "true"}
+            %span ALL
+        %li.is-active
+          = link_to following_list_users_path do
+            %span.icon.is-small
+              %i.fas.fa-music{"aria-hidden" => "true"}
+            %span Following
+        %li
+          = link_to follower_list_users_path do
+            %span.icon.is-small
+              %i.fas.fa-film{"aria-hidden" => "true"}
+            %span Followers
+        %li
+          = link_to matching_list_users_path do
+            %span.icon.is-small
+              %i.far.fa-file-alt{"aria-hidden" => "true"}
+            %span Matched
+
+    .title.is-4 List of Following Users
+    .columns.is-multiline
+      - @users.each do |user|
+        - if current_user.following?(user)
+          .column.is-one-quarter
+            .card
+              = link_to user_path(user) do
+                .card-image
+                  %figure.image.is-1by1
+                    - if user.profile_image.blank?
+                      = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image"
+                    - else
+                      = image_tag user.profile_image.url, class: "profile-image"
+              .card-content
+                .media
+                  .media-left
+                    %figure.image{ style: "height: 40px; width: 40px;"}
+                      = image_tag "https://source.unsplash.com/random/96x96"
+                  .media-content
+                    = link_to user_path(user) do
+                      %p.title.is-5 #{user.nickname}
+                      %p.subtitle.is-6 @アカウント名
+                .content
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                  %br
+                  %a @bulmaio
+                  %a #css
+                  %a #responsive
+                  .has-text-right
+                    %small 登録日：#{user.created_at.strftime("%Y/%-m/%-d")}
+= render 'shared/footer'

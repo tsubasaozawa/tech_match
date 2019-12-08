@@ -1,27 +1,64 @@
-.text-center
-  - if @user.id == current_user.id
-    = form_with model: @user, local: true do |f|
-      = f.file_field :profile_image
-      = f.submit
-    - if @user.profile_image.blank?
-      = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image"
-    - else
-      = image_tag @user.profile_image.url, class: "profile-image"
-    = link_to withdrawal_user_path do
-      退会する
-  - else
-    - if @user.profile_image.blank?
-      = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image"
-    - else
-      = image_tag @user.profile_image.url, class: "profile-image"
-    .text-center#user-description
-      = @user.nickname
-      - if user_signed_in?
-        #follow_form
-          - if current_user.following?(@user)
-            #liked.btn.btn-default フォロー済
-          - else
-            = render 'follow', {relationship: @relationship}
-        %br= @user.profile_text
+= render 'user-header'
+.section
+  .hero-body
+    .container
+      .columns.is-mobile.is-centered
+        - if @user.profile_image.blank?
+          %figure.image
+            = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 250px; width: 200px;"
+        - else
+          %figure.image
+            = image_tag @user.profile_image.url, class: "profile-image", style: "height: 250px; width: 200px;"
+        .profile-info
+          .profile-info__profile-top-box
+            .profile-info__profile-top-box__user-nickname
+              %span.title.is-5 #{@user.nickname}
+            .profile-info__profile-top-box__user-fullname
+              #{@user.lastname_kanji}#{@user.firstname_kanji}
+            .profile-info__profile-top-box__follow-count
+              .profile-info__profile-top-box__follow-count__followers
+                Followers：#{@user.followers.count}
+              .profile-info__profile-top-box__follow-count__following
+                Following：#{@user.following.count}
+            - if current_user.id == @user.id
+              .profile-info__profile-top-box__user-info-edit
+                = link_to({controller: "users", action: "edit", name: "edit_profile"}) do
+                  .button Edit Profile
+            - else
+              #follow_form
+                - if current_user.following?(@user)
+                  #liked.button.btn-default フォロー済
+                - else
+                  = render 'follow', {relationship: @relationship}
+            -# .profile-top-box__user-nickname
+            -#   - unless @user.admin?
+            -#     = link_to withdrawal_user_path do
+            -#       退会する
+            
+
+      .tabs.is-centered
+        %ul
+          %li.is-active
+            %a
+              %span.icon.is-small
+                %i.fa.fa-image
+              %span Pictures
+          %li
+            %a
+              %span.icon.is-small
+                %i.fa.fa-music
+              %span Music
+          %li
+            %a
+              %span.icon.is-small
+                %i.fa.fa-film
+              %span Videos
+          %li
+            %a
+              %span.icon.is-small
+                %i.fa.fa-file-text-o
+              %span Documents
 
 = link_to 'Back', root_path
+
+= render 'shared/footer'

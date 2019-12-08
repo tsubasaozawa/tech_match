@@ -1,5 +1,34 @@
 .profile-image{
-  height: 220px;
-  width: 190px;
   object-fit: cover;
+}
+.hidden-file-field{
+  display: none;
+}
+.profile-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 30px;
+
+  &__profile-top-box{
+    &__user-nickname{
+      margin-bottom: 5px;
+    }
+    &__user-fullname{
+      margin-bottom: 5px;
+    }
+    &__follow-count{
+      display: flex;
+      margin-bottom: 8px;
+
+      &__followers{
+        margin-right: 15px;
+      }
+      &__following{}
+
+    }
+    &__user-info-edit{
+      margin-bottom: 5px;
+    }
+  }
 }
