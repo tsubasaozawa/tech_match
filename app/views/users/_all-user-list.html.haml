@@ -1,0 +1,32 @@
+.title.is-4 List of All Users
+.columns.is-multiline
+  - @users.each do |user|
+    .column.is-one-quarter
+      .card
+        = link_to user_path(user) do
+          .card-image
+            %figure.image.is-1by1
+              - if user.profile_image.blank?
+                = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image"
+              - else
+                = image_tag user.profile_image.url, class: "profile-image"
+        .card-content
+          .media
+            .media-left
+              %figure.image{ style: "height: 40px; width: 40px;"}
+                = image_tag "https://source.unsplash.com/random/96x96"
+            .media-content
+              = link_to user_path(user) do
+                %p.title.is-5 #{user.nickname}
+                %p.subtitle.is-6 @アカウント名
+          .content
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+            %br
+            %a @bulmaio
+            %a #css
+            %a #responsive
+            .has-text-right
+              %small 登録日：#{user.created_at.strftime("%Y/%-m/%-d")}
+            - if current_user.admin? && !(current_user == user)
+              .has-text-right{style: "margin-top: 10px;"}
+                = link_to "delete", user, method: :delete, data: { confirm: "このユーザーを本当に削除しますか?" }, class: "button is-danger is-outlined"
