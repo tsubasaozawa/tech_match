@@ -11,35 +11,38 @@
               .nav-left
               .nav-center
                 .nav-item{ style: "margin-bottom: 20px;"}
-                  .title.is-2{ style: "margin-left: 40px;"} Edit Profile
-              .nav-right.is-2
+                  .title.is-2 Edit Profile
+              .nav-right
 
             .nav
               .nav-left
-              .nav-right
-                .nav-item
+                .nav-item.right-contents
                   .label Acountname
+              .nav-center
                 .nav-item
                   = f.text_field :nickname, class: "input", placeholder: "例）たろやん", type: "text", style: "width: 350px;"
+              .nav-right
             .nav
               .nav-left
-              .nav-right
-                .nav-item
+                .nav-item.right-contents
                   .label Name
+              .nav-center
                 .nav-item
                   = f.text_field :lastname_kanji, class: "input", placeholder: "例）山田 太郎", type: "text", style: "width: 350px;"
+              .nav-right
 
             .nav
               .nav-left
-              .nav-right
-                .nav-item
+                .nav-item.right-contents
                   .label Biography
+              .nav-center
                 .nav-item
                   = f.text_field :profile_text, class: "input", placeholder: "例）よろしくお願いします", type: "text", style: "width: 350px;"
+              .nav-right
 
             .columns.is-mobile
-              .column.is-5
-              .column.is-half.is-offset-one-quarte
+              .column
+              .column
                 = f.label :profile_image, title: "クリックして画像選択" do
                   - if @user.profile_image.blank?
                     %figure.image
@@ -48,13 +51,12 @@
                     %figure.image
                       = image_tag @user.profile_image.url, class: "profile-image", style: "height: 300px; width: 250px;"
                   = f.file_field :profile_image, class: "hidden-file-field"
+              .column
             .nav
               .nav-left
+              .nav-center
+                .nav-item
+                  = f.submit class: "button is-success is-outlined"
               .nav-right
-                .nav-item
-                .nav-item
-                  = f.submit class: "button"
-
-          .column.is-2
 
 = render 'shared/footer'
