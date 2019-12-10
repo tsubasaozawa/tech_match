@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "users#index"
+  resources :relationships
   resources :users do
     get 'users/:name', controller: 'users', action: 'edit'
     collection do
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
     member do
       get :withdrawal
     end
+    resources :articles
   end
-  resources :relationships
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
