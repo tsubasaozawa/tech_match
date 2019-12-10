@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_users, only: [:index, :follower_list, :following_list]
   before_action :set_user, only: [:show, :destroy, :edit, :update, :withdrawal]
   def index
-    @users = User.where.not(id: current_user.id)
+    @users = User.where.not(id: current_user.id).order("created_at DESC").page(params[:page]).per(20)
   end
 
   def follower_list

@@ -10,20 +10,20 @@
             .nav-left
             .nav-center
               .nav-item{ style: "margin-bottom: 20px;"}
-                .title.is-2{ style: "margin-left: 40px;"} Withdrawal
+                .title.is-2 Withdrawal
             .nav-right.is-2
 
           .nav
             .nav-left
             .nav-center
               .nav-item
-                .label 本当に退会しますか？
+                .label 退会しますか？
             .nav-right
           .nav
             .nav-left
             .nav-center
               .nav-item
-                = link_to "/users/#{@user.id}", method: :delete, data: { confirm: "You sure?" } , class: "button is-warning" do
+                = link_to "/users/#{@user.id}", method: :delete, data: { confirm: "最終確認です。本当に退会しますか?" } , class: "button is-warning" do
                   YES
               .nav-item
                 or

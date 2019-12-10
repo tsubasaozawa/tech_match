@@ -46,14 +46,14 @@
             .columns.is-mobile
               .column
               .column
-                = f.label :profile_image, title: "クリックして画像選択" do
-                  - if @user.profile_image.blank?
-                    %figure.image
-                      = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 300px; width: 250px; margin-top: 20px;"
-                  - else
-                    %figure.image
-                      = image_tag @user.profile_image.url, class: "profile-image", style: "height: 300px; width: 250px;"
-                  = f.file_field :profile_image, class: "hidden-file-field"
+                -# = f.label :profile_image, title: "クリックして画像選択" do
+                - if @user.profile_image.blank?
+                  %figure.image
+                    = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 300px; width: 250px; margin-top: 20px;", id: "myimg_prev"
+                - else
+                  %figure.image
+                    = image_tag @user.profile_image.url, class: "profile-image", style: "height: 300px; width: 250px;", id: "myimg_prev"
+                = f.file_field :profile_image, id: "myimg_change"
               .column
             .nav
               .nav-left

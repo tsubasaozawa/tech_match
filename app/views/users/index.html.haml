@@ -45,5 +45,5 @@
                 %a #responsive
                 .has-text-right
                   %small 登録日：#{user.created_at.strftime("%Y/%-m/%-d")}
-
+    = paginate(@users)
 = render 'shared/footer'
