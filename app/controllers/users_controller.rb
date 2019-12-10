@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @relationship = Relationship.new
+    @article = @user.article
   end
 
   def destroy

@@ -1,0 +1,13 @@
+= render 'users/user-header'
+.section
+  .hero-body
+    .container{ style: "padding: 0 80px;"}
+      .box
+        .hero-body
+          .container.has-text-centered
+            .title.is-2 Edit "This is me"
+            .subtitle.is-4 This is meとは
+          %hr
+          = render 'article-form', {user: @user, article: @article}
+
+= render 'shared/footer'
