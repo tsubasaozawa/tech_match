@@ -19,13 +19,17 @@
     }
     &__follow-count{
       display: flex;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
 
       &__followers{
         margin-right: 15px;
       }
       &__following{}
 
+    }
+    &__user-bio{
+      margin-bottom: 8px;
+      font-weight: bold;
     }
     &__user-info-edit{
       margin-bottom: 5px;
@@ -44,4 +48,16 @@
 
 .has-border-bottom{
   border-bottom: solid 1px rgb(156, 156, 156) ;
+}
+
+.flash-message-notice{
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  background:rgba(0, 133, 241, 0.9);
+  text-align: center;
+  line-height: 40px;
+  color: #ffffff;
+  font-weight: bold;
+
 }

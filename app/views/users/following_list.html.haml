@@ -5,23 +5,15 @@
       %ul
         %li
           = link_to root_path do
-            %span.icon.is-small
-              %i.fas.fa-image{"aria-hidden" => "true"}
             %span ALL
         %li.is-active
           = link_to following_list_users_path do
-            %span.icon.is-small
-              %i.fas.fa-music{"aria-hidden" => "true"}
             %span Following
         %li
           = link_to follower_list_users_path do
-            %span.icon.is-small
-              %i.fas.fa-film{"aria-hidden" => "true"}
             %span Followers
         %li
           = link_to matching_list_users_path do
-            %span.icon.is-small
-              %i.far.fa-file-alt{"aria-hidden" => "true"}
             %span Matched
 
     .title.is-4 List of Following Users

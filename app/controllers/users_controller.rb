@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path, notice: "更新が完了しました")
     else
       render :show
     end

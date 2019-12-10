@@ -5,23 +5,15 @@
       %ul
         %li.is-active
           = link_to root_path do
-            %span.icon.is-small
-              %i.fas.fa-image{"aria-hidden" => "true"}
             %span ALL
         %li
           = link_to following_list_users_path do
-            %span.icon.is-small
-              %i.fas.fa-music{"aria-hidden" => "true"}
             %span Following
         %li
           = link_to follower_list_users_path do
-            %span.icon.is-small
-              %i.fas.fa-film{"aria-hidden" => "true"}
             %span Followers
         %li
           = link_to matching_list_users_path do
-            %span.icon.is-small
-              %i.far.fa-file-alt{"aria-hidden" => "true"}
             %span Matched
 
     .title.is-4 List of All Users
@@ -46,7 +38,7 @@
                     %p.title.is-5 #{user.nickname}
                     %p.subtitle.is-6 @アカウント名
               .content
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                = user.profile_text
                 %br
                 %a @bulmaio
                 %a #css

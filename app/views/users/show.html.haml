@@ -20,6 +20,8 @@
                 Followers：#{@user.followers.count}
               .profile-info__profile-top-box__follow-count__following
                 Following：#{@user.following.count}
+            .profile-info__profile-top-box__user-bio
+              = @user.profile_text
             - if current_user.id == @user.id
               .profile-info__profile-top-box__user-info-edit
                 = link_to({controller: "users", action: "edit", name: "edit_profile"}) do
@@ -72,7 +74,5 @@
             .container
               %br
               = render 'user-article', locals: @article
-
-= link_to 'Back', root_path
 
 = render 'shared/footer'
