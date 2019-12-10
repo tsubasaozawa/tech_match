@@ -19,7 +19,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    binding.pry
+    if @article.update(article_params)
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
   end
 
   private
@@ -28,7 +32,7 @@ class ArticlesController < ApplicationController
   end
 
   def set_article
-    @article = Article.find(params[:id])
+    @article = @user.article
   end
 
   def article_params

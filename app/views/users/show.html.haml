@@ -62,100 +62,16 @@
                 = link_to edit_user_article_path(current_user) do
                   .button This is meを編集する
               %br
-              .tile.is-ancestor
-                .tile.is-parent.is-1
-                .tile.is-parent
-                  - if @article.created_at == @article.updated_at
-                    #{@article.created_at.strftime("%Y/%m/%d %H:%M")}
-                  - else
-                    #{@article.created_at.strftime("%Y/%m/%d %H:%M")}／#{@article.updated_at.strftime("%Y/%m/%d %H:%M")}
-                .tile.is-parent
-              .tile.is-ancestor
-                .tile.is-parent.is-1
-                .tile.is-vertical.is-parent
-                  .tile.is-child.is-12
-                    .container
-                      .title.is-4.has-border-bottom.has-padding-bottom #{@article.first_title}
-                  .tile.is-child
-                    .container
-                      #{@article.first_content}
-                .tile.is-4.is-parent
-                  .tile.is-child.has-text-centered
-                    - if @article.first_image.blank?
-                      = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px"
-                    - else
-                      = image_tag @article.first_image.url, style: "height: 330px; width: 250px"
-
-              %br
-              .tile.is-ancestor
-                .tile.is-4.is-parent
-                  .tile.is-child.has-text-centered
-                    - if @article.second_image.blank?
-                      = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px"
-                    - else
-                      = image_tag @article.second_image.url, style: "height: 330px; width: 250px"
-                .tile.is-vertical.is-parent
-                  .tile.is-child.is-12
-                    .container
-                      .title.is-4.has-border-bottom.has-padding-bottom #{@article.second_title}
-                  .tile.is-child
-                    .container
-                      #{@article.second_content}
-                .tile.is-parent.is-1
-
-              %br
-              .tile.is-ancestor
-                .tile.is-parent.is-1
-                .tile.is-vertical.is-parent
-                  .tile.is-child.is-12
-                    .container
-                      .title.is-4.has-border-bottom.has-padding-bottom #{@article.third_title}
-                  .tile.is-child
-                    .container
-                      #{@article.third_content}
-                .tile.is-4.is-parent
-                  .tile.is-child.has-text-centered
-                    - if @article.third_image.blank?
-                      = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px"
-                    - else
-                      = image_tag @article.third_image.url, style: "height: 330px; width: 250px"
-
-                      
-              -# %br
-              -# .tile.is-ancestor
-              -#   .tile.is-4.is-parent
-              -#     .tile.is-child.has-text-centered
-              -#       - if @article.second_image.blank?
-              -#         = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px"
-              -#       - else
-              -#         = image_tag @article.second_image.url, style: "height: 330px; width: 250px"
-              -#   .tile.is-parent
-              -#     .tile.is-child
-              -#       .container
-              -#         .title.is-4.has-border-bottom.has-padding-bottom #{@article.second_title}
-              -#     .tile.is-child
-              -#       .container
-              -#         #{@article.second_content}
-              -# %br
-              -# .tile.is-ancestor
-              -#   .tile.is-parent
-              -#     .tile.is-child
-              -#       .container
-              -#         .title.is-4.has-border-bottom.has-padding-bottom #{@article.third_title}
-              -#     .tile.is-child
-              -#       .container
-              -#         #{@article.third_content}
-              -#   .tile.is-4.is-parent
-              -#     .tile.is-child.has-text-centered
-              -#       - if @article.third_image.blank?
-              -#         = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px"
-              -#       - else
-              -#         = image_tag @article.third_image.url, style: "height: 330px; width: 250px"
+              = render 'user-article', locals: @article
 
         - else
           - if @article.blank?
             .container.has-text-centered
               まだ記事はありません。
+          - else
+            .container
+              %br
+              = render 'user-article', locals: @article
 
 = link_to 'Back', root_path
 

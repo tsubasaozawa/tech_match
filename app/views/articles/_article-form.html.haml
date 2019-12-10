@@ -13,26 +13,26 @@
     .tile.is-4.is-parent
       .tile.is-child.box.has-text-centered
         - if article.first_image.blank?
-          = f.label :first_image do
-            = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px;"
-            = f.file_field :first_image, class: "hidden-file-field"
+          -# = f.label :first_image
+          = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px;", id: "img_prev1"
+          = f.file_field :first_image, id: "post_img1"
         - else
-          = f.label :first_image do
-            = image_tag article.first_image.url, class: "profile-image", style: "height: 330px; width: 250px;"
-            = f.file_field :first_image, class: "hidden-file-field"
+          -# = f.label :first_image
+          = image_tag article.first_image.url, class: "profile-image", style: "height: 330px; width: 250px;", id: "img_prev1"
+          = f.file_field :first_image, id: "post_img1"
   %br
   .title.is-3 Second Article
   .tile.is-ancestor
     .tile.is-4.is-parent
       .tile.is-child.box.has-text-centered
         - if article.second_image.blank?
-          = f.label :second_image do
-            = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px;"
-            = f.file_field :second_image, class: "hidden-file-field"
+          -# = f.label :second_image
+          = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px;", id: "img_prev2"
+          = f.file_field :second_image, id: "post_img2"
         - else
-          = f.label :second_image do
-            = image_tag article.second_image.url, class: "profile-image", style: "height: 330px; width: 250px;"
-            = f.file_field :second_image, class: "hidden-file-field"
+          -# = f.label :second_image
+          = image_tag article.second_image.url, class: "profile-image", style: "height: 330px; width: 250px;", id: "img_prev2"
+          = f.file_field :second_image, id: "post_img2"
     .tile.is-parent
       .tile.is-child.box
         .container
@@ -57,13 +57,13 @@
     .tile.is-4.is-parent
       .tile.is-child.box.has-text-centered
         - if article.third_image.blank?
-          = f.label :third_image do
-            = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px;"
-            = f.file_field :third_image, class: "hidden-file-field"
+          -# = f.label :third_image
+          = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", style: "height: 330px; width: 250px;", id: "img_prev3"
+          = f.file_field :third_image, id: "post_img3"
         - else
-          = f.label :third_image do
-            = image_tag article.third_image.url, class: "profile-image", style: "height: 330px; width: 250px;"
-            = f.file_field :third_image, class: "hidden-file-field"
+          -# = f.label :third_image
+          = image_tag article.third_image.url, class: "profile-image", style: "height: 330px; width: 250px;", id: "img_prev3"
+          = f.file_field :third_image, id: "post_img3"
   .nav
     .nav-left
     .nav-center
