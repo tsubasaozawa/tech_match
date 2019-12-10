@@ -20,7 +20,7 @@
     .columns.is-multiline
       - if @matched_users.blank?
         .column
-          No Matching User
+          No Matched User
       - else 
         - @matched_users.each do |matched_user|
           .column.is-one-quarter
